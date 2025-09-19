@@ -1,0 +1,51 @@
+# Ignore subfolders
+ffmpeg/
+uploads/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.pytest_cache/
+htmlcov/
+.mypy_cache/
+.vscode/
+.idea/
+
+# FastAPI specific
+.env
+.flaskenv
+instance/
+celerybeat-schedule
+celeryd.pid
+*.sqlite3
+*.db
+*.log
+
+# Editor/IDE specific
+# Visual Studio Code
+.vscode/
+# IntelliJ IDEA
+.idea/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
