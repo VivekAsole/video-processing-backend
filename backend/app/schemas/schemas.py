@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class VideoSchema(BaseModel):
-    id: int
+    id: str
     original_filename: str 
     saved_filename: str
     size: int | None = None

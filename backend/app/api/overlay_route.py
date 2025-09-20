@@ -48,20 +48,19 @@ async def process_video_overlay_request(
     for key, file in file_map.items():
         if file is not None:
             saved_filename, file_path = await save_file(file, "overlay_items")
-            print(file_path)
             
             # Update overlays where file_key == current key
             for overlay in overlays_data:
                 if overlay.get("file_key") == key:
-                    overlay["file_key"] = file_path
+                    overlay["file_key"] = str(file_path)
     
     video_data = get_video_by_id(db, video_id)
     input_file=video_data.saved_filename
-    
+
     # pass the process in job queue
     job = call_overlay_task.delay(input_file=input_file, overlays=overlays_data)
         
-    return {"path": job.id}
+    return {"job_id": job.id}
 
 
 # download the overlay processed video

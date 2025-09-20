@@ -33,5 +33,5 @@ app.include_router(process_router)
 
 @app.get("/", summary="Root endpoint")
 def read_root():
-    """Welcome message for the API root."""
-    return {"message": "Welcome to the FastAPI project!"}
+    """FastAPI based video processing backend."""
+    return {"message": "FastAPI based video processing backend."}

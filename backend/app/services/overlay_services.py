@@ -99,7 +99,7 @@ def apply_overlays_to_video(input_file: str, overlays: List[Dict[str, Any]]) -> 
     input_folder = get_upload_path()
     input_file_path = input_folder / input_file
     
-    base = ffmpeg.input(str(input_file_path))
+    base = ffmpeg.input(input_file_path)
     
     inputs = []  # extra inputs for images/videos
 
@@ -111,7 +111,7 @@ def apply_overlays_to_video(input_file: str, overlays: List[Dict[str, Any]]) -> 
             inputs.append(None)
 
     overlay_stream = base
-    input_index = 0
+    # input_index = 0
     
     for idx, overlay in enumerate(overlays):
         otype = overlay['type']
@@ -136,8 +136,8 @@ def apply_overlays_to_video(input_file: str, overlays: List[Dict[str, Any]]) -> 
             )
 
         elif otype in ['image', 'video']:
-            media = inputs[input_index]
-            input_index += 1
+            media = inputs[idx]
+            # input_index += 1
 
             scale = overlay.get('scale')
             if scale:
@@ -182,7 +182,7 @@ def save_overlay(job_id: str, overlay_filename: str, overlays: list):
         db.add(new_overlay)
         db.commit()
         db.refresh(new_overlay)
-        return new_overlay
+        return str(new_overlay)
     except Exception as e:
         db.rollback()
         raise e

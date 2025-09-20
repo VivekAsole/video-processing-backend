@@ -1,8 +1,8 @@
 from pathlib import Path
 from datetime import datetime
 
-def create_file_name(ext="mp4"):
-    return f"video_{datetime.now().strftime('%Y%m%d_%H%M%S')}.{ext}"
+def create_file_name(ext=".mp4"):
+    return f"video_{datetime.now().strftime('%Y%m%d_%H%M%S')}{ext}"
 
 
 def get_upload_path(subfolder: str = 'videos') -> Path:

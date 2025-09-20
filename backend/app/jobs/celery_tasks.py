@@ -15,7 +15,7 @@ def call_overlay_task(self, input_file, overlays):
     # Save result to DB
     save_overlay(job_id,overlay_filename, overlays )
     
-    return {"job_id": job_id, "overlay_filename": overlay_filename}
+    return {"job_id": job_id}
     
     
     
